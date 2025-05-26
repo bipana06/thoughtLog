@@ -1,18 +1,36 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 // @ts-ignore - ignore typing if apiService.js is JS
 import { createPost } from './apiService'; // Adjust the import based on your project structure
+import { jwtDecode } from 'jwt-decode';
 
 const NewPostForm: React.FC = () => {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
-    const userId = 'test_user2'; // Hardcoded user ID
+    const [userEmail, setUserEmail] = useState('');
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const token = localStorage.getItem('thoughtlog_jwt');
+        if (!token) {
+            navigate('/signin-with-google');
+            return;
+        }
+        try {
+            const decoded: any = jwtDecode(token);
+            setUserEmail(decoded.email);
+        } catch {
+            localStorage.removeItem('thoughtlog_jwt');
+            navigate('/signin-with-google');
+        }
+    }, [navigate]);
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         // Add logic to handle form submission, e.g., API call
         const postData = {
             postTitle: title,
-            user: userId,
+            user: userEmail,
             content: content,
             date: new Date().toISOString(),
         };

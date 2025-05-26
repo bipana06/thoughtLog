@@ -28,7 +28,7 @@ export const createPost = async (postData) => {
 }
 
 // Function to get all posts
-export const getPosts = async () => {
+export const getallPosts = async () => {
     try {
         const response = await axios.get('http://127.0.0.1:8000/api/posts');
         return response.data.posts;
@@ -86,12 +86,27 @@ export const deletePost = async (postId) => {
     }
 }
 
+// Function to start Google sign-in (redirects to backend)
+export const googleSignIn = () => {
+    window.location.href = 'http://127.0.0.1:8000/login/google';
+};
 
+// Function to sign up a new user
+export const signup = async (signupData) => {
+    try {
+        const response = await axios.post('http://127.0.0.1:8000/signup', signupData);
+        return response.data;
+    } catch (error) {
+        throw error;
+    }
+};
 
 export default {
     createPost,
-    getPosts,
+    getallPosts,
     getUserPosts,
     editPost,
-    deletePost
+    deletePost,
+    googleSignIn,
+    signup
 };
