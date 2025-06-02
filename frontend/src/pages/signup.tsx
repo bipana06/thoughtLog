@@ -37,27 +37,120 @@ const Signup: React.FC = () => {
     };
 
     return (
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-            <form onSubmit={handleSubmit} style={{ minWidth: 300, padding: 24, border: '1px solid #ccc', borderRadius: 8, background: '#fff' }}>
-                <h2>Complete Signup</h2>
-                <div style={{ marginBottom: 12 }}>
-                    <label>Email:</label>
-                    <input type="email" value={email} disabled style={{ width: '100%' }} />
-                </div>
-                <div style={{ marginBottom: 12 }}>
-                    <label>Full Name:</label>
-                    <input type="text" value={name} onChange={e => setName(e.target.value)} style={{ width: '100%' }} required />
-                </div>
-                <div style={{ marginBottom: 12 }}>
-                    <label>Username:</label>
-                    <input type="text" value={username} onChange={e => setUsername(e.target.value)} style={{ width: '100%' }} required />
-                </div>
-                {error && <div style={{ color: 'red', marginBottom: 12 }}>{error}</div>}
-                <button type="submit" disabled={loading} style={{ width: '100%', padding: 8 }}>
-                    {loading ? 'Signing up...' : 'Sign Up'}
-                </button>
-            </form>
+//     <div className="flex flex-col items-center justify-center min-h-screen px-4 text-black">
+//     <form
+//         onSubmit={handleSubmit}
+//         className="w-full max-w-md bg-white bg-opacity-90 backdrop-blur-md p-8 rounded-2xl shadow-xl border border-gray-200 gap-6"
+//     >
+//         <h2 className="text-2xl font-semibold text-center text-purple-700 mb-6">New User Signup</h2>
+
+//         <div className="mb-4">
+//             <label className="block text-sm font-medium text-gray-700 mb-1 text-left">Email</label>
+//             <input
+//                 type="email"
+//                 value={email}
+//                 disabled
+//                 className="w-full px-4 py-2 border border-gray-300 rounded-lg bg-gray-100 text-gray-500 cursor-not-allowed"
+//             />
+//         </div>
+
+//         <div className="mb-4">
+//             <label className="block text-sm font-medium text-gray-700 mb-1 text-left">Full Name*</label>
+//             <input
+//                 type="text"
+//                 value={name}
+//                 onChange={e => setName(e.target.value)}
+//                 required
+//                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+//             />
+//         </div>
+
+//         <div className="mb-4">
+//             <label className="block text-sm font-medium text-gray-700 mb-1 text-left">Username*</label>
+//             <input
+//                 type="text"
+//                 value={username}
+//                 onChange={e => setUsername(e.target.value)}
+//                 required
+//                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+//             />
+//         </div>
+
+//         {error && (
+//             <div className="mb-4 text-sm text-red-600 bg-red-100 px-4 py-2 rounded-lg">
+//                 {error}
+//             </div>
+//         )}
+
+//         <button
+//             type="submit"
+//             disabled={loading}
+//             className={`w-full py-2 px-4 rounded-lg text-white transition duration-200 ${
+//                 loading ? 'bg-purple-300 cursor-not-allowed' : 'bg-purple-600 hover:bg-purple-700'
+//             }`}
+//         >
+//             {loading ? 'Signing up...' : 'Sign Up'}
+//         </button>
+//     </form>
+// </div>
+<div className="flex flex-col items-center justify-center min-h-screen px-4 text-black">
+    <form
+        onSubmit={handleSubmit}
+        className="w-full max-w-3xl bg-white bg-opacity-90 backdrop-blur-md p-10 rounded-2xl shadow-xl border border-gray-200 space-y-8"
+    >
+        <h2 className="text-3xl font-semibold text-center text-purple-700">New User Signup</h2>
+
+        <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1 text-left">Email</label>
+            <input
+                type="email"
+                value={email}
+                disabled
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg bg-gray-100 text-gray-500 cursor-not-allowed"
+            />
         </div>
+
+        <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1 text-left">Full Name*</label>
+            <input
+                type="text"
+                value={name}
+                onChange={e => setName(e.target.value)}
+                required
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+            />
+        </div>
+
+        <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1 text-left">Username*</label>
+            <input
+                type="text"
+                value={username}
+                onChange={e => setUsername(e.target.value)}
+                required
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+            />
+        </div>
+
+        {error && (
+            <div className="text-sm text-red-600 bg-red-100 px-4 py-2 rounded-lg">
+                {error}
+            </div>
+        )}
+
+        <button
+            type="submit"
+            disabled={loading}
+            className={`w-full py-2 px-4 rounded-lg text-white transition duration-200 ${
+                loading ? 'bg-purple-300 cursor-not-allowed' : 'bg-purple-600 hover:bg-purple-700'
+            }`}
+        >
+            {loading ? 'Signing up...' : 'Sign Up'}
+        </button>
+    </form>
+</div>
+
+
     );
 };
 

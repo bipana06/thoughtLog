@@ -12,13 +12,13 @@ const LandingPage: React.FC = () => {
     const navigate = useNavigate();
 
     return (
-        <div className="App">
+
+        <div className="App text-center flex flex-col items-center justify-center min-h-screen text-black gap-4">
             <h1>Welcome to ThoughtLog!</h1>
             <p>Start logging your thoughts and ideas here.</p>
-            <button onClick={() => navigate("/posts")}>
+            <button className="text-white" onClick={() => navigate("/posts")}>
                 Start Browsing
             </button>
-
         </div>
     );
 };

@@ -30,7 +30,9 @@ const NewPostForm: React.FC = () => {
         // Add logic to handle form submission, e.g., API call
         const postData = {
             postTitle: title,
-            user: userEmail,
+            email: userEmail,
+            username: localStorage.getItem('thoughtlog_username') || '',
+            name: localStorage.getItem('thoughtlog_name') || '',
             content: content,
             date: new Date().toISOString(),
         };
@@ -55,7 +57,7 @@ const NewPostForm: React.FC = () => {
 
     return (
         <div>
-            <h1>Create a New Post</h1>
+            <h1 className="text-black">Create a New Post</h1>
             <form onSubmit={handleSubmit}>
                 <div>
                     <label htmlFor="title">Title:</label>
@@ -66,6 +68,8 @@ const NewPostForm: React.FC = () => {
                         placeholder='Enter post title'
                         onChange={(e) => setTitle(e.target.value)}
                         required
+                        className="text-black mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:ring-purple-500 focus:border-purple-500"
+
                     />
                 </div>
                 <div>
@@ -76,6 +80,8 @@ const NewPostForm: React.FC = () => {
                         placeholder='Enter post content'
                         onChange={(e) => setContent(e.target.value)}
                         required
+                        className="text-black mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:ring-purple-500 focus:border-purple-500"
+
                     />
                 </div>
                 <button type="submit">Submit</button>

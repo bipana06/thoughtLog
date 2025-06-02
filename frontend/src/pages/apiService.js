@@ -10,6 +10,9 @@ export const createPost = async (postData) => {
         formData.append('content', postData.content);
         formData.append('userId', postData.userId);
         formData.append('date', postData.date);
+        formData.append('userName', postData.userName);
+        formData.append('name', postData.name);
+        
         
         console.log(formData);
         const response = await axios.post('http://127.0.0.1:8000/api/posts', postData, {

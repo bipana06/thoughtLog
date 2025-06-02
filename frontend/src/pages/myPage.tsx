@@ -79,7 +79,7 @@ const MyPage: React.FC = () => {
 
     return (
         <div>
-            <h1>User Posts</h1>
+            <h1 className='text-black'>User Posts</h1>
             <button onClick={handleCreatePost} style={{ marginBottom: '1rem' }}>
                 Create New Post
             </button>

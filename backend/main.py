@@ -154,7 +154,10 @@ async def create_post(
     postTitle: str = Form(...),
     content: str = Form(...),
     date: str = Form(...),
-    user: str = Form(...),
+    email: str = Form(...),
+    username: str = Form(...),
+    name: str = Form(...),
+
 ):
     try:
         print(f"Received post: {postTitle}, {content}, {date}")  # Debug log
@@ -166,9 +169,12 @@ async def create_post(
         # Prepare the post data
         post_data = {
             "postTitle": postTitle,
-            "user": user,
+            "email": email,
             "content": content,
-            "date": date,
+            "date": date,   
+            "username": username,
+            "name": name,
+
             # "comments": []
             # "likes": 0,
             # "dislikes": 0,
